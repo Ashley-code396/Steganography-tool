@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Steganography Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Steganography Tool</h1>
+
+      <section>
+        <h2>Encode text into image</h2>
+        <form id="encode-form">
+          <label>Image (PNG/JPEG): <input type="file" name="image" accept="image/*" required /></label>
+          <label>Message: <textarea name="message" rows="4" cols="40" placeholder="Text to hide"></textarea></label>
+          <button type="submit">Encode & download stego image</button>
+        </form>
+        <!-- Preview area: show the original image (before) and the stego image (after) side-by-side -->
+        <div id="preview-area" aria-live="polite">
+          <div class="preview-frame">
+            <div class="label">Original (before)</div>
+            <img id="img-before" alt="Original image preview" src="" />
+          </div>
+          <div class="preview-frame">
+            <div class="label">Stego (after)</div>
+            <img id="img-after" alt="Stego image preview" src="" />
+          </div>
+        </div>
+
+        <div id="encode-result"></div>
+      </section>
+
+      <section>
+        <h2>Decode text from image</h2>
+        <form id="decode-form">
+          <label>Stego Image: <input type="file" name="image" accept="image/*" required /></label>
+          <button type="submit">Decode</button>
+        </form>
+        <!-- Preview for decode: show the uploaded stego image before decoding -->
+        <div id="decode-preview" aria-live="polite">
+          <div class="preview-frame">
+            <div class="label">Image preview</div>
+            <img id="img-decode" alt="Decode image preview" src="" />
+          </div>
+        </div>
+        <pre id="decode-result"></pre>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

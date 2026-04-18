@@ -1,0 +1,99 @@
+:root{
+	/* pure black + neon green palette */
+	--bg-900: #000000;
+	--bg-800: #000000;
+	--card: rgba(6,8,10,0.75);
+	--muted: #9cdba8; /* soft muted green */
+	--text: #eaffee; /* light green-tinged text */
+	--accent: #00ff88; /* neon green */
+	--accent-2: #6effb2; /* soft neon highlight */
+	--glass: rgba(6,8,10,0.5);
+	--glow: 0 6px 30px rgba(0,255,136,0.14);
+	--soft-glow: 0 4px 18px rgba(0,255,136,0.06);
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html,body{height:100%}
+body{
+	display:flex;align-items:flex-start;justify-content:center;padding:36px;
+	background:radial-gradient(900px 420px at 8% 12%, rgba(0,255,136,0.04), transparent 8%),
+						 radial-gradient(700px 320px at 92% 88%, rgba(110,255,190,0.02), transparent 10%),
+						 linear-gradient(180deg,var(--bg-900),var(--bg-800));
+	color:var(--text);
+}
+
+main{max-width:980px;width:100%;}
+
+header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+header h1{margin:0;font-size:1.6rem;color:var(--accent);text-shadow:0 2px 12px rgba(0,255,136,0.12)}
+header p{margin:0;color:var(--muted)}
+
+section{
+	background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+	backdrop-filter: blur(6px) saturate(1.05);
+	box-shadow: 0 8px 40px rgba(0,0,0,0.8), var(--soft-glow);
+	padding:20px;margin-bottom:18px;border-radius:12px;border:1px solid rgba(0,255,136,0.06);
+}
+
+label{display:block;margin:10px 0;color:var(--muted)}
+input[type="file"], textarea, input[type="text"]{
+	width:100%;box-sizing:border-box;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+	background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+	color:var(--text);font-size:0.95rem;outline:none;transition:box-shadow 160ms, border-color 160ms;
+}
+textarea{min-height:100px}
+input[type="file"]{padding:8px}
+input[type="file"]:focus, textarea:focus, input[type="text"]:focus{
+	box-shadow: 0 6px 30px rgba(0,255,136,0.06);
+	border-color: rgba(0,255,136,0.28);
+}
+
+button{
+	background:linear-gradient(90deg,var(--accent),var(--accent-2));
+	color:#00120a;padding:10px 14px;border:0;border-radius:12px;cursor:pointer;font-weight:700;
+	box-shadow: 0 10px 30px rgba(0,255,136,0.12), 0 2px 6px rgba(0,0,0,0.6);transition:transform 120ms, box-shadow 120ms;
+}
+button:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(0,255,136,0.14)}
+
+#encode-result, #decode-result{
+	margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(255,255,255,0.01));color:var(--text);
+	border:1px solid rgba(0,255,136,0.04);
+}
+
+.muted{color:var(--muted);font-size:0.95rem}
+
+/* small layout helpers */
+.row{display:flex;gap:12px;align-items:center}
+.small{font-size:0.9rem}
+
+/* Preview area for before / after images */
+
+#preview-area{display:flex;gap:16px;margin-top:14px;align-items:flex-start}
+.preview-frame{
+	flex:1;padding:14px;border-radius:12px;display:flex;flex-direction:column;align-items:center;min-height:220px;
+	background:linear-gradient(180deg, rgba(255,255,255,0.006), rgba(255,255,255,0.002));
+	border:1px solid rgba(0,255,136,0.06);
+	box-shadow: 0 8px 30px rgba(0,0,0,0.7), 0 6px 24px rgba(0,255,136,0.03) inset;
+}
+.preview-frame .label{font-weight:700;color:var(--accent);margin-bottom:8px;font-size:0.95rem;text-shadow:0 2px 10px rgba(0,255,136,0.04)}
+.preview-frame img{max-width:100%;max-height:360px;object-fit:contain;border-radius:8px;background:linear-gradient(180deg,#000b06,#00110a);border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(0,0,0,0.7)}
+
+@media (max-width:720px){
+	#preview-area{flex-direction:column}
+}
+
+/* decode preview container: center single preview */
+#decode-preview{display:flex;justify-content:center;margin-top:12px}
+
+/* subtle link/button style tweak for download link */
+a[download]{
+	display:inline-block;padding:8px 12px;border-radius:10px;background:transparent;color:var(--accent);border:1px solid rgba(0,255,136,0.08);text-decoration:none;box-shadow:var(--soft-glow);
+}
+
+/* small responsive tweaks */
+@media (max-width:520px){
+	body{padding:18px}
+	.preview-frame img{max-height:260px}
+}
+
+footer{margin-top:12px;color:var(--muted);font-size:0.85rem}
