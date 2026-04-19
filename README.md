@@ -35,7 +35,7 @@ http://localhost:3000
 
 ## Visual demo (before → embedding → after)
 
-.
+
 
 <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
   <div style="text-align:center">
@@ -120,7 +120,6 @@ curl -s -X POST -F "image=@out.png" http://localhost:3000/decode
 
 - sharp installation problems: ensure libvips and build tools are available on your system. On many Linux systems you can install `libvips` via the package manager to avoid building from source.
 - Use PNG for embedding when possible. JPEG or other lossy transforms will likely destroy hidden bits.
-- If the demo generator fails, verify the input file exists at `assets/demo-before.png` or `assets/demo-before.jpg`.
 
 Security reminder
 - LSB steganography hides the existence of a message but does not encrypt it. If confidentiality matters, encrypt the message before embedding (e.g., AES with a separate key).
