@@ -1,4 +1,4 @@
-# Steganography Tool — local server UI
+# Steganography Tool 
 
 A small,  demo that shows how to hide text inside images using least-significant-bit (LSB) steganography. The project includes a minimal web UI and  a tiny API
 
@@ -132,7 +132,7 @@ Security reminder
 - Add a capacity estimator to the UI so users know how much text fits before embedding.
 - Add optional encryption (client-side or server-side) before embed.
 - Add a CLI wrapper for quick command-line encode/decode.
-- Generate a combined side-by-side PNG for environments that don't render HTML in READMEs.
+
 
 ---
 
